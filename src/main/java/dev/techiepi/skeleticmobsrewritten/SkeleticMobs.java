@@ -1,4 +1,4 @@
-package org.spongepowered.example;
+package dev.techiepi.skeleticmobsrewritten;
 
 import com.google.inject.Inject;
 import net.kyori.adventure.identity.Identity;
@@ -20,19 +20,14 @@ import org.spongepowered.api.event.lifecycle.StoppingEngineEvent;
 import org.spongepowered.plugin.PluginContainer;
 import org.spongepowered.plugin.jvm.Plugin;
 
-/**
- * An example Sponge plugin.
- *
- * <p>All methods are optional -- some common event registrations are included as a jumping-off point.</p>
- */
-@Plugin("example")
-public class Example {
+@Plugin("skeletic-mobs-rewritten")
+public class SkeleticMobs {
 
     private final PluginContainer container;
     private final Logger logger;
 
     @Inject
-    Example(final PluginContainer container, final Logger logger) {
+    SkeleticMobs(final PluginContainer container, final Logger logger) {
         this.container = container;
         this.logger = logger;
     }
@@ -61,20 +56,21 @@ public class Example {
         // When possible, all commands should be registered within a command register event
         final Parameter.Value<String> nameParam = Parameter.string().key("name").build();
         event.register(this.container, Command.builder()
-            .addParameter(nameParam)
-            .permission("example.command.greet")
-            .executor(ctx -> {
-                final String name = ctx.requireOne(nameParam);
-                ctx.sendMessage(Identity.nil(), LinearComponents.linear(
-                    NamedTextColor.AQUA,
-                    Component.text("Hello "),
-                    Component.text(name, Style.style(TextDecoration.BOLD)),
-                    Component.text("!")
-                ));
+                .addParameter(nameParam)
+                .permission("example.command.greet")
+                .executor(ctx -> {
+                    final String name = ctx.requireOne(nameParam);
+                    ctx.sendMessage(Identity.nil(), LinearComponents.linear(
+                            NamedTextColor.AQUA,
+                            Component.text("Hello "),
+                            Component.text(name, Style.style(TextDecoration.BOLD)),
+                            Component.text("!")
+                    ));
 
-                return CommandResult.success();
-            })
-            .build(), "greet", "wave");
+                    return CommandResult.success();
+                })
+                .build(), "greet", "wave");
     }
 
 }
+

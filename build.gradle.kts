@@ -15,17 +15,17 @@ repositories {
 
 sponge {
     apiVersion("8.0.0")
-    plugin("example") {
+    plugin("skeletic-mobs-rewritten") {
         loader(PluginLoaders.JAVA_PLAIN)
-        displayName("Example")
-        mainClass("org.spongepowered.example.Example")
-        description("Just testing things...")
+        displayName("Skeletic Mobs Rewritten")
+        mainClass("dev.techiepi.skeleticmobsrewritten.SkeleticMobs")
+        description("A complete (and decent) rewrite of the original Skeletic Mobs")
         links {
-            homepage("https://spongepowered.org")
-            source("https://spongepowered.org/source")
-            issues("https://spongepowered.org/issues")
+            homepage("https://github.com/Techie-Pi/SkeleticMobsRewritten#readme")
+            source("https://github.com/Techie-Pi/SkeleticMobsRewritten")
+            issues("https://github.com/Techie-Pi/SkeleticMobsRewritten/issues")
         }
-        contributor("Spongie") {
+        contributor("TechiePi") {
             description("Lead Developer")
         }
         dependency("spongeapi") {
